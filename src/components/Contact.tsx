@@ -1,7 +1,53 @@
 import React from 'react';
 import { Mail, Phone } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
+  const [values, setValues] = React.useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [status, setStatus] = React.useState({
+    loading: false,
+    error: null,
+    success: false
+  });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus({ loading: true, error: null, success: false });
+    
+    try {
+      await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID!,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID!,
+        {
+          name: values.name,
+          email: values.email,
+          message: values.message,
+        },
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY!
+      );
+      
+      setStatus({ loading: false, error: null, success: true });
+      setValues({ name: '', email: '', message: '' }); // Reset form
+    } catch (error) {
+      setStatus({ 
+        loading: false, 
+        error: 'Failed to send message. Please try again later.', 
+        success: false 
+      });
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setValues(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,7 +59,17 @@ export default function Contact() {
         </div>
         <div className="grid md:grid-cols-2 gap-12">
           <div className="bg-gray-50 p-8 rounded-xl">
-            <form name="contact" method="POST" data-netlify="true" className="space-y-6">
+            <form onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true" className="space-y-6">
+              {status.loading && (
+                <div className="text-blue-600">Sending message...</div>
+              )}
+              {status.error && (
+                <div className="text-red-600">{status.error}</div>
+              )}
+              {status.success && (
+                <div className="text-green-600">Message sent successfully!</div>
+              )}
+              
               <input type="hidden" name="form-name" value="contact" />
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
@@ -23,6 +79,8 @@ export default function Contact() {
                   name="name"
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   required
+                  value={values.name}
+                  onChange={handleChange}
                 />
               </div>
               <div>
@@ -33,6 +91,8 @@ export default function Contact() {
                   name="email"
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   required
+                  value={values.email}
+                  onChange={handleChange}
                 />
               </div>
               <div>
@@ -43,13 +103,20 @@ export default function Contact() {
                   rows={4}
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                   required
+                  value={values.message}
+                  onChange={handleChange}
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors"
+                disabled={status.loading}
+                className={`w-full px-6 py-3 rounded-full transition-colors ${
+                  status.loading 
+                    ? 'bg-blue-400 cursor-not-allowed' 
+                    : 'bg-blue-600 hover:bg-blue-700'
+                } text-white`}
               >
-                Send Message
+                {status.loading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
