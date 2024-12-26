@@ -24,15 +24,15 @@ export default function Contact() {
       message: values.message,
     };
 
-    console.log(process.env.REACT_APP_EMAILJS_SERVICE_ID);
+    console.log(import.meta.env.VITE_EMAILJS_SERVICE_ID);
 
     emailjs
       .send(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID!,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID!,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         templateParams,
         {
-          publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY!,
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
         }
       )
       .then(
