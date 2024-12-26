@@ -18,27 +18,36 @@ export default function Contact() {
     e.preventDefault();
     setStatus({ loading: true, error: null, success: false });
     
-    try {
-      await emailjs.send(
+    const templateParams = {
+      from_name: values.name,
+      reply_to: values.email,
+      message: values.message,
+    };
+
+    emailjs
+      .send(
         process.env.REACT_APP_EMAILJS_SERVICE_ID!,
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID!,
+        templateParams,
         {
-          name: values.name,
-          email: values.email,
-          message: values.message,
+          publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY!,
+        }
+      )
+      .then(
+        (response) => {
+          setStatus({ loading: false, error: null, success: true });
+          setValues({ name: '', email: '', message: '' }); // Reset form
+          console.log('SUCCESS!', response.status, response.text);
         },
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY!
+        (error) => {
+          setStatus({ 
+            loading: false, 
+            error: 'Failed to send message. Please try again later.', 
+            success: false 
+          });
+          console.log('FAILED...', error);
+        }
       );
-      
-      setStatus({ loading: false, error: null, success: true });
-      setValues({ name: '', email: '', message: '' }); // Reset form
-    } catch (error) {
-      setStatus({ 
-        loading: false, 
-        error: 'Failed to send message. Please try again later.', 
-        success: false 
-      });
-    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
