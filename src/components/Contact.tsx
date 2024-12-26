@@ -24,6 +24,8 @@ export default function Contact() {
       message: values.message,
     };
 
+    console.log(process.env.REACT_APP_EMAILJS_SERVICE_ID);
+
     emailjs
       .send(
         process.env.REACT_APP_EMAILJS_SERVICE_ID!,
