@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, Loader2, CheckCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 export default function Contact() {
@@ -24,15 +24,13 @@ export default function Contact() {
       message: values.message,
     };
 
-    console.log(import.meta.env.VITE_EMAILJS_SERVICE_ID);
-
     emailjs
       .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
         templateParams,
         {
-          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY!,
         }
       )
       .then(
@@ -72,13 +70,13 @@ export default function Contact() {
           <div className="bg-gray-50 p-8 rounded-xl">
             <form onSubmit={handleSubmit} name="contact" method="POST" data-netlify="true" className="space-y-6">
               {status.loading && (
-                <div className="text-blue-600">Sending message...</div>
+                <div className="text-blue-600 bg-blue-100 pt-2 pb-2.5 px-3 rounded-md">Sending message...</div>
               )}
               {status.error && (
-                <div className="text-red-600">{status.error}</div>
+                <div className="text-red-600 bg-red-100 pt-2 pb-2.5 px-3 rounded-md">{status.error}</div>
               )}
               {status.success && (
-                <div className="text-green-600">Message sent successfully!</div>
+                <div className="text-green-600 bg-green-100 pt-2 pb-2.5 px-3 rounded-md flex items-center justify-between gap-2"><div>Message sent successfully!</div><CheckCircle className="h-5 w-5" /></div>
               )}
               
               <input type="hidden" name="form-name" value="contact" />
@@ -88,7 +86,7 @@ export default function Contact() {
                   type="text"
                   id="name"
                   name="name"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 py-1.5 px-2"
                   required
                   value={values.name}
                   onChange={handleChange}
@@ -100,7 +98,7 @@ export default function Contact() {
                   type="email"
                   id="email"
                   name="email"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 py-1.5 px-2"
                   required
                   value={values.email}
                   onChange={handleChange}
@@ -112,7 +110,7 @@ export default function Contact() {
                   id="message"
                   name="message"
                   rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 px-2 py-1.5"
                   required
                   value={values.message}
                   onChange={handleChange}
@@ -125,8 +123,9 @@ export default function Contact() {
                   status.loading 
                     ? 'bg-blue-400 cursor-not-allowed' 
                     : 'bg-blue-600 hover:bg-blue-700'
-                } text-white`}
+                } text-white flex items-center justify-center gap-2`}
               >
+                {status.loading && <Loader2 className="h-5 w-5 animate-spin" />}
                 {status.loading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
