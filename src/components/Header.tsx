@@ -1,4 +1,4 @@
-import { Users, Menu } from 'lucide-react';
+import { Users, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Button from './Button';
@@ -13,6 +13,10 @@ export default function Header() {
     setIsModalOpen(true)
     setIsMenuOpen(false)
   }
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <>
@@ -45,19 +49,31 @@ export default function Header() {
             className="md:hidden p-2"
             aria-label="Menu"
           >
-            <Menu className="h-6 w-6" />
+            {isMenuOpen ? (
+              <X className="h-8 w-8" />
+            ) : (
+              <Menu className="h-8 w-8" />
+            )}
           </button>
         </div>
 
         {isMenuOpen && (
           <div className="md:hidden mt-2 py-2 space-y-2 text-center">
-            <Link to="/" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+            <Link 
+              to="/" 
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              onClick={handleLinkClick}
+            >
               Home
             </Link>
-            <Link to="/our-work" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+            <Link 
+              to="/our-work" 
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              onClick={handleLinkClick}
+            >
               Our Work
             </Link>
-            <Button onClick={openModal}>Get Started</Button>
+            <Button className='!mt-4' onClick={openModal}>Get Started</Button>
           </div>
         )}
       </nav>
