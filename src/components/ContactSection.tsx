@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mail, Phone } from 'lucide-react';
 import ContactForm from './ContactForm';
 
@@ -9,7 +8,7 @@ export default function Contact() {
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Get In Touch</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Ready to find your perfect first hire? Contact us today to start your journey.
+          Ready to elevate your business? Contact us to start your journey today!
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-12">

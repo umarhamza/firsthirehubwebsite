@@ -1,8 +1,8 @@
 import React from 'react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import Contact from '../components/Contact';
+import ContactSection from '../components/ContactSection';
 import Hero from '../components/Hero';
-import CardLong from '../components/CardLong';
+import CardSimpleWithButton from '../components/CardSimpleWithButton';
 
 const OurWork: React.FC = () => {
   const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -20,12 +20,12 @@ const OurWork: React.FC = () => {
         />
 
         <div className="grid md:grid-cols-2 gap-8">
-          <CardLong 
-            title="Preview Our Portfolio"
+          <CardSimpleWithButton 
+            title="Preview Our Work"
             description="Get PDF with links to companies we've worked with (opens in new tab)"
             buttons={[
               {
-                label: "Preview Our Portfolio",
+                label: "Preview Our Work",
                 href: "https://drive.google.com/file/d/10-CJkC1uTX4fXbpxLvDOYU9O173DAHXd/view?usp=sharing",
                 target: "_blank",
                 icon: ArrowUpRight,
@@ -33,7 +33,7 @@ const OurWork: React.FC = () => {
             ]}
           />
 
-          <CardLong
+          <CardSimpleWithButton
             title="Ready to Transform Your Business?"
             description="Join our success stories. Let's find the perfect first hire that will take your business to the next level."
             buttons={[
@@ -49,8 +49,8 @@ const OurWork: React.FC = () => {
           />
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-          <Contact />
+        <div className="bg-white rounded-xl shadow-sm overflow-hidden mt-8">
+          <ContactSection />
         </div>
       </div>
     </div>

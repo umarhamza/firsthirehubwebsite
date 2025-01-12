@@ -1,8 +1,9 @@
 import React from 'react';
 
-type CardLongProps = {
+type CardSimpleWithButtonProps = {
     title: string;
     description: string;
+    className?: string;
     buttons: {
         label: string;
         href: string;
@@ -16,10 +17,10 @@ type CardLongProps = {
     }[];
 }
 
-const CardLong = ({ title, description, buttons }: CardLongProps) => {
+const CardSimpleWithButton = ({ title, description, buttons, className = '' }: CardSimpleWithButtonProps) => {
     return (
        
-        <div className="text-center bg-white p-12 rounded-xl shadow-sm mb-20">
+        <div className={`text-center bg-white p-12 rounded-xl shadow-sm ${className}`}>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             {title}
           </h2>
@@ -27,7 +28,9 @@ const CardLong = ({ title, description, buttons }: CardLongProps) => {
             {description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {buttons?.map((b, index) => (
+            {buttons?.map((b, index) => {
+              const Icon = b.icon;
+              return (
               <a
                 key={index}
                 href={b.href}
@@ -43,15 +46,13 @@ const CardLong = ({ title, description, buttons }: CardLongProps) => {
                 onClick={b.onClick}
               >
                 {b.label}
-                {b.icon && React.createElement(b.icon, {
-                  className: "ml-2 h-5 w-5"
-                })}
+                {Icon && <Icon className="ml-2 h-5 w-5" />}
               </a>
-            ))}
+            )})}
           </div>
         </div>
     );
 };
 
-export default CardLong;
+export default CardSimpleWithButton;
 
