@@ -1,10 +1,11 @@
 import React from "react";
 import Hero from "../components/Hero";
-import { Users, Lightbulb, ChartPie, MonitorSmartphone } from "lucide-react";
+import { Users, Lightbulb, ChartPie, MonitorSmartphone, SquareArrowOutUpRight } from "lucide-react";
 import ContactSection from "../components/ContactSection";
 import { ArrowRight } from "lucide-react";
 import SectionIntro from "../components/SectionIntro";
 import Card from "../components/Card";
+import CardSimpleWithButton from "../components/CardSimpleWithButton";
 
 const Home: React.FC = () => {
   const scrollToSection = (id: string) => {
@@ -15,7 +16,10 @@ const Home: React.FC = () => {
   return (
     <>
       <Hero
-        heading={`Empower Your Business Growth with <span class='text-blue-600'>First Hire Hub!</span>`}
+        heading={`
+          Empower Your Business Growth with 
+          <span class='text-blue-600'>First Hire Hub!</span>
+        `}
         description="From stunning websites and professional logos to impactful brochures and expert team-building consultancy, we deliver everything you need to scale and supercharge your business."
         buttonOneLabel="Get Started"
         buttonTwoLabel="Learn More"
@@ -74,8 +78,7 @@ const Home: React.FC = () => {
               Our Process
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              A structured approach to finding and integrating your perfect
-              first hire.
+              A structured, results-driven approach to transform your business.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -120,7 +123,24 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-      <ContactSection />
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <CardSimpleWithButton
+            background="bg-gradient-to-r from-blue-50 to-indigo-50"
+            title="Read Our Reviews on Trustpilot"
+            description="We're proud of our 4.8/5 rating from verified customers. See what makes our service stand out."
+            buttons={[
+              {
+                label: "View Reviews",
+                href: "https://www.trustpilot.com/review/firsthirehub.com",
+                target: "_blank",
+                icon: SquareArrowOutUpRight
+              }
+            ]}
+          />
+        </div>
+      </section>
+      <ContactSection dark={true} />
     </>
   );
 };

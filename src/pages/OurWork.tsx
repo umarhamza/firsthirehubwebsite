@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, SquareArrowOutUpRight } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import Hero from '../components/Hero';
 import CardSimpleWithButton from '../components/CardSimpleWithButton';
@@ -41,15 +41,31 @@ const OurWork: React.FC = () => {
                 label: "Get Started",
                 href: "#contact",
                 onClick: scrollToContact,
-                backgroundColor: "blue-600",
-                textColor: "white",
+                backgroundColor: "white",
+                borderColor: "blue-600",
+                textColor: "blue-600",
                 icon: ArrowRight
               }
             ]}
           />
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm overflow-hidden mt-8">
+        <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8">
+        <CardSimpleWithButton
+            title="Read Our Reviews on Trustpilot"
+            description="We're proud of our 4.8/5 rating from verified customers. See what makes our service stand out."
+            buttons={[
+              {
+                label: "View Reviews",
+                href: "https://www.trustpilot.com/review/firsthirehub.com",
+                target: "_blank",
+                icon: SquareArrowOutUpRight
+              }
+            ]}
+          />
+        </div>
+
+        <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8">
           <ContactSection />
         </div>
       </div>
