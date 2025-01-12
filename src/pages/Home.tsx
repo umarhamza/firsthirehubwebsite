@@ -78,34 +78,34 @@ const Home: React.FC = () => {
               Our Process
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              A structured, results-driven approach to transform your business.
+            Clear and actionable steps to drive your business forward.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 number: "01",
-                title: "Initial Consultation",
+                title: "Discovery",
                 description:
-                  "Understand your goals, challenges, and vision to craft a tailored growth strategy.",
+                  "We work with you to uncover your goals, challenges, and growth opportunities.",
               },
               {
                 number: "02",
-                title: "Brand & Needs Analysis",
+                title: "Strategic Planning",
                 description:
-                  "Analyze your brand identity and pinpoint areas of growth or improvement.",
+                  "Craft a tailored roadmap that aligns with your vision and business needs.",
               },
               {
                 number: "03",
-                title: "Creative & Talent Solutions",
+                title: "Creative Solutions",
                 description:
-                  "Deliver stunning visuals, engaging websites, and expert team-building consultancy.",
+                  "Deliver impactful designs, websites, and team-building strategies to achieve results.",
               },
               {
                 number: "04",
-                title: "Integration & Support",
+                title: "Ongoing Support",
                 description:
-                  "Provide ongoing support to ensure your business thrives with our solutions.",
+                  "Provide continuous support to ensure your business thrives long-term.",
               },
             ].map((step, index) => (
               <div key={index} className="relative">
@@ -128,7 +128,7 @@ const Home: React.FC = () => {
           <CardSimpleWithButton
             background="bg-gradient-to-r from-blue-50 to-indigo-50"
             title="Read Our Reviews on Trustpilot"
-            description="We're proud of our 4.8/5 rating from verified customers. See what makes our service stand out."
+            description="Leave us your feedback on Trustpilot and help others discover our services."
             buttons={[
               {
                 label: "View Reviews",

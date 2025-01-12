@@ -53,7 +53,7 @@ const OurWork: React.FC = () => {
         <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8">
         <CardSimpleWithButton
             title="Read Our Reviews on Trustpilot"
-            description="We're proud of our 4.8/5 rating from verified customers. See what makes our service stand out."
+            description="Leave us your feedback on Trustpilot and help others discover our services."
             buttons={[
               {
                 label: "View Reviews",
