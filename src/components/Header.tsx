@@ -36,6 +36,9 @@ export default function Header() {
             <Link to="/our-work" className="text-gray-700 hover:text-gray-900">
               Our Work
             </Link>
+            <Link to="/testimonials" className="text-gray-700 hover:text-gray-900">
+              Testimonials
+            </Link>
           </div>
           <button 
             onClick={openModal}
@@ -72,6 +75,13 @@ export default function Header() {
               onClick={handleLinkClick}
             >
               Our Work
+            </Link>
+            <Link 
+              to="/testimonials" 
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              onClick={handleLinkClick}
+            >
+              Testimonials
             </Link>
             <Button className='!mt-4' onClick={openModal}>Get Started</Button>
           </div>
