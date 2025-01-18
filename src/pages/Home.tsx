@@ -1,8 +1,7 @@
 import React from "react";
 import Hero from "../components/Hero";
-import { Users, Lightbulb, ChartPie, MonitorSmartphone, SquareArrowOutUpRight } from "lucide-react";
+import { Users, Lightbulb, ChartPie, MonitorSmartphone, ArrowRight } from "lucide-react";
 import ContactSection from "../components/ContactSection";
-import { ArrowRight } from "lucide-react";
 import SectionIntro from "../components/SectionIntro";
 import Card from "../components/Card";
 import CardSimpleWithButton from "../components/CardSimpleWithButton";
@@ -127,14 +126,13 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CardSimpleWithButton
             background="bg-gradient-to-r from-blue-50 to-indigo-50"
-            title="Read Our Reviews on Trustpilot"
-            description="Leave us your feedback on Trustpilot and help others discover our services."
+            title="Read Our Client Success Stories"
+            description="Discover how we've helped businesses find their perfect first technical hire and transform their operations."
             buttons={[
               {
-                label: "View Reviews",
-                href: "https://www.trustpilot.com/review/firsthirehub.com",
-                target: "_blank",
-                icon: SquareArrowOutUpRight
+                label: "View Testimonials",
+                href: "/testimonials",
+                icon: ArrowRight
               }
             ]}
           />

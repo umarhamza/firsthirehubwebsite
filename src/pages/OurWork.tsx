@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, ArrowUpRight, SquareArrowOutUpRight } from 'lucide-react';
+import { ArrowRight, SquareArrowOutUpRight } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import Hero from '../components/Hero';
 import CardSimpleWithButton from '../components/CardSimpleWithButton';
@@ -28,7 +28,7 @@ const OurWork: React.FC = () => {
                 label: "Preview Our Work",
                 href: "https://drive.google.com/file/d/10-CJkC1uTX4fXbpxLvDOYU9O173DAHXd/view?usp=sharing",
                 target: "_blank",
-                icon: ArrowUpRight,
+                icon: ArrowRight,
               }
             ]}
           />
@@ -52,13 +52,12 @@ const OurWork: React.FC = () => {
 
         <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8">
         <CardSimpleWithButton
-            title="Read Our Reviews on Trustpilot"
-            description="Leave us your feedback on Trustpilot and help others discover our services."
+            title="Read Our Client Reviews"
+            description="See what our clients have to say about working with us and the results we've helped them achieve."
             buttons={[
               {
                 label: "View Reviews",
-                href: "https://www.trustpilot.com/review/firsthirehub.com",
-                target: "_blank",
+                href: "/testimonials",
                 icon: SquareArrowOutUpRight
               }
             ]}
