@@ -4,7 +4,7 @@ const SocialMedia = () => {
         <h4 className="font-semibold">Follow Us:</h4>
         <div className="flex space-x-4">
           <a 
-            href="https://skool.com" 
+            href="https://www.skool.com/first-hire-hub-7163/about" 
             target="_blank" 
             rel="noopener noreferrer"
             className="rounded-full overflow-hidden transform transition-transform hover:scale-110"
@@ -18,7 +18,7 @@ const SocialMedia = () => {
             />
           </a>
           <a 
-            href="https://youtube.com" 
+            href="https://www.youtube.com/@ismaelfraser47" 
             target="_blank" 
             rel="noopener noreferrer"
             className="rounded-full overflow-hidden transform transition-transform hover:scale-110"
