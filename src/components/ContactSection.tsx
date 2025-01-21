@@ -1,5 +1,6 @@
 import { Mail, Phone } from 'lucide-react';
 import ContactForm from './ContactForm';
+import SocialMedia from './SocialMedia';
 
 type ContactSectionProps = {
   dark?: boolean
@@ -37,6 +38,7 @@ export default function ContactSection({ dark }: ContactSectionProps) {
                 <p className="text-gray-600">+44 7931 217860</p>
               </div>
             </div>
+            <SocialMedia />
           </div>
         </div>
       </div>

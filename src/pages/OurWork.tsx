@@ -28,7 +28,7 @@ const OurWork: React.FC = () => {
                 label: "Preview Our Work",
                 href: "https://drive.google.com/file/d/10-CJkC1uTX4fXbpxLvDOYU9O173DAHXd/view?usp=sharing",
                 target: "_blank",
-                icon: ArrowRight,
+                icon: SquareArrowOutUpRight,
               }
             ]}
           />
@@ -58,7 +58,7 @@ const OurWork: React.FC = () => {
               {
                 label: "View Reviews",
                 href: "/testimonials",
-                icon: SquareArrowOutUpRight
+                icon: ArrowRight
               }
             ]}
           />
