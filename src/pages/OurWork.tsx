@@ -1,12 +1,12 @@
 import React from 'react';
-import { ArrowRight, SquareArrowOutUpRight } from 'lucide-react';
+import { ArrowDown, SquareArrowOutUpRight } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import Hero from '../components/Hero';
 import CardSimpleWithButton from '../components/CardSimpleWithButton';
+import MasonryReviews from '../components/MasonryReviews';
 
 const OurWork: React.FC = () => {
-  const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+  const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     contactSection?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -17,51 +17,28 @@ const OurWork: React.FC = () => {
           heading="Building Memorable Brand Identities <span class='block text-blue-600'>That Stand Out</span>"
           headingStyle2
           description="See how we've helped companies develop distinctive logos and brand websites that capture their unique value and connect with their target audience."
+          buttonOneLabel="Get Started"
+          buttonOneClickHandler={scrollToContact}
+          buttonOneArrow={ArrowDown}
         />
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <CardSimpleWithButton 
-            title="Preview Our Work"
-            description="Get PDF with links to companies we've worked with (opens in new tab)"
-            buttons={[
-              {
-                label: "Preview Our Work",
-                href: "https://drive.google.com/file/d/10-CJkC1uTX4fXbpxLvDOYU9O173DAHXd/view?usp=sharing",
-                target: "_blank",
-                icon: SquareArrowOutUpRight,
-              }
-            ]}
-          />
+        <CardSimpleWithButton 
+          title="Preview Our Work"
+          description="Get PDF with links to companies we've worked with (opens in new tab)"
+          buttons={[
+            {
+              label: "Preview Our Work",
+              href: "https://drive.google.com/file/d/10-CJkC1uTX4fXbpxLvDOYU9O173DAHXd/view?usp=sharing",
+              target: "_blank",
+              icon: SquareArrowOutUpRight,
+            }
+          ]}
+        />
 
-          <CardSimpleWithButton
-            title="Ready to Transform Your Business?"
-            description="Join our success stories. Let's find the perfect first hire that will take your business to the next level."
-            buttons={[
-              {
-                label: "Get Started",
-                href: "#contact",
-                onClick: scrollToContact,
-                backgroundColor: "white",
-                borderColor: "blue-600",
-                textColor: "blue-600",
-                icon: ArrowRight
-              }
-            ]}
-          />
-        </div>
-
-        <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8">
-        <CardSimpleWithButton
-            title="Read Our Client Reviews"
-            description="See what our clients have to say about working with us and the results we've helped them achieve."
-            buttons={[
-              {
-                label: "View Reviews",
-                href: "/testimonials",
-                icon: ArrowRight
-              }
-            ]}
-          />
+        <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8 p-6 lg:px-8 lg:pt-12 lg:pb-14">
+          <h2 className="text-3xl font-bold mb-4 text-center">Read Our Client Reviews</h2>
+          <p className="text-gray-600 mb-8 text-center">See what our clients have to say about working with us and the results we've helped them achieve.</p>
+          <MasonryReviews />
         </div>
 
         <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8">
