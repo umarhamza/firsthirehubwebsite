@@ -4,7 +4,7 @@ import { Users, Lightbulb, ChartPie, MonitorSmartphone, ArrowRight } from "lucid
 import ContactSection from "../components/ContactSection";
 import SectionIntro from "../components/SectionIntro";
 import Card from "../components/Card";
-import CardSimpleWithButton from "../components/CardSimpleWithButton";
+import MasonryReviews from "../components/MasonryReviews";
 
 const Home: React.FC = () => {
   const scrollToSection = (id: string) => {
@@ -124,18 +124,9 @@ const Home: React.FC = () => {
       </section>
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <CardSimpleWithButton
-            background="bg-gradient-to-r from-blue-50 to-indigo-50"
-            title="Read Our Client Success Stories"
-            description="Discover how we've helped businesses find their perfect first technical hire and transform their operations."
-            buttons={[
-              {
-                label: "View Testimonials",
-                href: "/testimonials",
-                icon: ArrowRight
-              }
-            ]}
-          />
+          <h2 className="text-3xl font-bold mb-4 text-center">Read Our Client Success Stories</h2>
+          <p className="text-gray-600 mb-8 text-center">Discover how we've helped businesses find their perfect first technical hire and transform their operations.</p>
+          <MasonryReviews />
         </div>
       </section>
       <ContactSection dark={true} />
