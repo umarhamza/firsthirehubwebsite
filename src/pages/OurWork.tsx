@@ -22,6 +22,12 @@ const OurWork: React.FC = () => {
           buttonOneArrow={ArrowDown}
         />
 
+        <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8 p-6 lg:px-8 lg:pt-12 lg:pb-14">
+          <h2 className="text-3xl font-bold mb-4 text-center">Read Our Client Reviews</h2>
+          <p className="text-gray-600 mb-8 text-center">See what our clients have to say about working with us and the results we've helped them achieve.</p>
+          <MasonryReviews />
+        </div>
+
         <CardSimpleWithButton 
           title="Preview Our Work"
           description="Get PDF with links to companies we've worked with (opens in new tab)"
@@ -34,12 +40,6 @@ const OurWork: React.FC = () => {
             }
           ]}
         />
-
-        <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8 p-6 lg:px-8 lg:pt-12 lg:pb-14">
-          <h2 className="text-3xl font-bold mb-4 text-center">Read Our Client Reviews</h2>
-          <p className="text-gray-600 mb-8 text-center">See what our clients have to say about working with us and the results we've helped them achieve.</p>
-          <MasonryReviews />
-        </div>
 
         <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8">
           <ContactSection />

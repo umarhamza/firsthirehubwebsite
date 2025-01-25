@@ -26,6 +26,13 @@ const Home: React.FC = () => {
         buttonTwoClickHandler={() => scrollToSection("services")}
         buttonOneArrow={ArrowRight}
       />
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold mb-4 text-center">Read Our Client Success Stories</h2>
+          <p className="text-gray-600 mb-8 text-center">Discover how we've helped businesses find their perfect first technical hire and transform their operations.</p>
+          <MasonryReviews />
+        </div>
+      </section>
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionIntro
@@ -120,13 +127,6 @@ const Home: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-4 text-center">Read Our Client Success Stories</h2>
-          <p className="text-gray-600 mb-8 text-center">Discover how we've helped businesses find their perfect first technical hire and transform their operations.</p>
-          <MasonryReviews />
         </div>
       </section>
       <ContactSection dark={true} />
