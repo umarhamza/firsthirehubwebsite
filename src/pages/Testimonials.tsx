@@ -172,7 +172,7 @@ const Testimonials: React.FC = () => {
         </div>
 
         <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8">
-          <ContactSection />
+          <ContactSection bookingBgClass="bg-orange-50" />
         </div>
       </div>
     </div>
