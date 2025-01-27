@@ -16,10 +16,9 @@ const Home: React.FC = () => {
     <>
       <Hero
         heading={`
-          Empower Your Business Growth with 
-          <span class='text-blue-600'>First Hire Hub!</span>
+          Empower Your Business Growth
         `}
-        description="From stunning websites and professional logos to impactful brochures and expert team-building consultancy, we deliver everything you need to scale and supercharge your business."
+        description="Empowering Your Business Growth with stunning websites, logos, brochures, and expert team-building consultancy to scale and succeed!"
         buttonOneLabel="Get Started"
         buttonTwoLabel="Learn More"
         buttonOneClickHandler={() => scrollToSection("contact")}
