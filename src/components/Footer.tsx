@@ -11,7 +11,7 @@ export default function Footer() {
             <span className="ml-2 text-xl font-bold">First Hire Hub</span>
           </div>
           <p className="text-gray-400 mb-8">
-            Helping businesses grow with the perfect first hire.
+            Helping businesses grow through strategic marketing and proven systems.
           </p>
           <div className="border-t border-gray-800 w-full pt-8 text-center text-gray-400">
             <p>&copy; {new Date().getFullYear()} First Hire Hub. All rights reserved.</p>

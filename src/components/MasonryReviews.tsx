@@ -32,7 +32,7 @@ const MasonryReviews = ({ responsive }: Props) => {
             >
               <img 
                 src={review}
-                alt={`First Hire Hub review ${index + 1}`}
+                alt={`Client review ${index + 1}`}
                 className="w-full h-auto"
               />
             </div>

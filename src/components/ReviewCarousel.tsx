@@ -55,7 +55,7 @@ const CarouselReviews = ({ responsive }: Props) => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <img 
                 src={review}
-                alt={`First Hire Hub review ${index + 1}`}
+                alt={`Client review ${index + 1}`}
                 className="w-full h-auto"
               />
             </div>

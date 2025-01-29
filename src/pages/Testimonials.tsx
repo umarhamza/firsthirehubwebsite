@@ -12,7 +12,7 @@ const Testimonials: React.FC = () => {
         <Hero
           heading="What Our Clients Say About Us <span class='block text-blue-600'>Success Stories</span>"
           headingStyle2
-          description="Discover how we've helped businesses find their perfect first technical hire and transform their operations."
+          description="Discover how we help businesses define their target audience, craft compelling offers, and build their authority."
         />
 
         <div className="mt-12">

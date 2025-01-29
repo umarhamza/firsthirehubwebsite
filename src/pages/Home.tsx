@@ -25,7 +25,7 @@ const Home: React.FC = () => {
       <Hero
         heading={`Get <span class="text-blue-600">Leads</span>, Build <span class="text-blue-600">Authority</span> 
           <br className="hidden md:block" />& Grow your <span class="text-blue-600">Business</span>`}
-        description="Helping business coaches & entrepreneurs attract leads, build authority, and grow their business through strategic hiring and proven systems."
+        description="Helping businesses define their target audience, craft offers, grow their profile, attract leads, and build authority through testimonials & reviews."
         buttonOneLabel="Book Free Consultation"
         buttonTwoLabel="Join Free Kickstart"
         buttonOneClickHandler={() => scrollToSection("booking")}
@@ -136,19 +136,19 @@ const Home: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                title: "First Hire Roadmap",
-                description: "Step-by-step guide to making your first hire",
+                title: "Growth Strategy Roadmap",
+                description: "Step-by-step guide to growing your business",
               },
               {
                 title: "1-on-1 Onboarding Call",
                 description: "Personal business growth session",
               },
               {
-                title: "First Hire Blueprint",
-                description: "Proven hiring framework",
+                title: "Business Growth Blueprint",
+                description: "Proven growth framework",
               },
               {
-                title: "Weekly Hiring Coaching",
+                title: "Weekly Strategy Coaching",
                 description: "Exclusive guidance & expert insights",
               },
             ].map((bonus, index) => (
