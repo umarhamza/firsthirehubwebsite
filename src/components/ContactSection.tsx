@@ -15,7 +15,7 @@ export default function ContactSection({ dark, showBooking = true, bookingBgClas
   return (
     <>
     {showBooking && (
-    <section className={`py-10 md:py-20 ${bookingBgClass}`}>
+    <section className={`py-10 md:py-20 ${bookingBgClass}`} id="booking">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Book a 1-to-1 30 Minute Meeting</h2>

@@ -7,33 +7,34 @@ import MasonryReviews from '../components/MasonryReviews';
 
 const OurWork: React.FC = () => {
   const scrollToContact = () => {
-    const contactSection = document.getElementById("contact");
+    const contactSection = document.getElementById("booking");
     contactSection?.scrollIntoView({ behavior: 'smooth' });
   };
   return (
     <div className="bg-gradient-to-r from-blue-50 to-indigo-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <Hero
-          heading="Building Memorable Brand Identities <span class='block text-blue-600'>That Stand Out</span>"
+          heading="Transform Your Brand's Digital Presence <span class='block text-blue-600'>With Proven Systems</span>"
           headingStyle2
-          description="See how we've helped companies develop distinctive logos and brand websites that capture their unique value and connect with their target audience."
-          buttonOneLabel="Get Started"
+          description="See how we've helped business coaches and entrepreneurs build authority and attract quality leads through strategic branding and memorable digital experiences."
+          buttonOneLabel="Book Free Consultation"
           buttonOneClickHandler={scrollToContact}
           buttonOneArrow={ArrowDown}
         />
 
         <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8 p-6 lg:px-8 lg:pt-12 lg:pb-14">
-          <h2 className="text-3xl font-bold mb-4 text-center">Read Our Client Reviews</h2>
-          <p className="text-gray-600 mb-8 text-center">See what our clients have to say about working with us and the results we've helped them achieve.</p>
+          <h2 className="text-3xl font-bold mb-4 text-center">Success Stories from Our Community</h2>
+          <p className="text-gray-600 mb-8 text-center">Join hundreds of successful business owners who have transformed their digital presence and scaled their impact.</p>
           <MasonryReviews />
         </div>
 
         <CardSimpleWithButton 
-          title="Preview Our Work"
-          description="Get PDF with links to companies we've worked with (opens in new tab)"
+          className='mt-8'
+          title="See Our Client Success Stories"
+          description="Download our portfolio showcasing how we've helped coaches and entrepreneurs double their impact (opens in new tab)"
           buttons={[
             {
-              label: "Preview Our Work",
+              label: "View Success Stories",
               href: "https://drive.google.com/file/d/10-CJkC1uTX4fXbpxLvDOYU9O173DAHXd/view?usp=sharing",
               target: "_blank",
               icon: SquareArrowOutUpRight,
@@ -42,7 +43,7 @@ const OurWork: React.FC = () => {
         />
 
         <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8">
-          <ContactSection bookingBgClass="bg-orange-50" />
+          <ContactSection bookingBgClass="bg-gray-50" />
         </div>
       </div>
     </div>
