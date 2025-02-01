@@ -1,7 +1,9 @@
+import { ArrowUpRight } from "lucide-react";
 import { ResponsiveMasonry } from "react-responsive-masonry";
 import Masonry from "react-responsive-masonry";
 
 interface Props {
+  showTrustpilotBtn?: boolean
   responsive?: {
     mobile?: number;
     tablet?: number;
@@ -9,7 +11,7 @@ interface Props {
   };
 }
 
-const MasonryReviews = ({ responsive }: Props) => {
+const MasonryReviews = ({showTrustpilotBtn = true, responsive }: Props) => {
   const { mobile = 1, tablet = 2, desktop = 3 } = responsive || {};
   const reviews = [
     "/images/reviews/first-hire-hub-review-1.png",
@@ -39,6 +41,18 @@ const MasonryReviews = ({ responsive }: Props) => {
           ))}
         </Masonry>
       </ResponsiveMasonry>
+      {showTrustpilotBtn && (
+        <div className="mt-8 text-center">
+          <a
+            href="https://www.trustpilot.com/review/firsthirehub.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            View Reviews on Trustpilot <ArrowUpRight />
+          </a>
+        </div>
+      )}
     </div>
   );
 };

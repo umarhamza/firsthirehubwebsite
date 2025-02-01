@@ -24,7 +24,7 @@ const OurWork: React.FC = () => {
 
         <div className="bg-white rounded-xl shadow-md overflow-hidden mt-8 p-6 lg:px-8 lg:pt-12 lg:pb-14">
           <h2 className="text-3xl font-bold mb-4 text-center">Success Stories from Our Community</h2>
-          <p className="text-gray-600 mb-8 text-center">Join hundreds of successful business owners who have transformed their digital presence and scaled their impact.</p>
+          <p className="text-gray-600 mb-8 text-center">Join the list of successful business owners who have transformed their digital presence and scaled their impact.</p>
           <MasonryReviews />
         </div>
 

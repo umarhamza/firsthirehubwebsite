@@ -1,37 +1,59 @@
+type SocialMediaLinks = {
+  href: string;
+  src: string;
+  alt: string;
+  width?: string;
+  height?: string;
+}
+
+const socialLinks: SocialMediaLinks[] = [
+  {
+    href: "https://www.skool.com/first-hire-hub-7163/about",
+    src: "/images/skool-logo.webp",
+    alt: "Skool",
+    width: '90%'
+  },
+  {
+    href: "https://www.youtube.com/@ismaelfraser47",
+    src: "/images/youtube-logo.svg",
+    alt: "YouTube",
+    width: '90%'
+  },
+  {
+    href: "https://www.linkedin.com/in/ismael-fraser-45045947/?originalSubdomain=uk",
+    src: "/images/linkedin_icon.svg", 
+    alt: "LinkedIn",
+  },
+  {
+    href: "https://www.trustpilot.com/review/firsthirehub.com",
+    src: "/images/trustpilot_icon.svg",
+    alt: "Trustpilot",
+    width: '75%'
+  }
+];
+
 const SocialMedia = () => {
   return (
     <div>
-        <h4 className="font-semibold">Follow Us:</h4>
-        <div className="flex space-x-4">
-          <a 
-            href="https://www.skool.com/first-hire-hub-7163/about" 
-            target="_blank" 
+      <h4 className="font-semibold">Follow Us:</h4>
+      <div className="flex space-x-4">
+        {socialLinks.map((link) => (
+          <a
+            key={link.alt}
+            href={link.href}
+            target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full overflow-hidden transform transition-transform hover:scale-110"
+            className="w-12 h-12 flex justify-center items-center rounded-full overflow-hidden transform transition-transform hover:scale-110 shadow-md border border-gray-100 px-1 pt-1.5 pb-0.5"
           >
             <img
-              src="/images/skool-logo.webp"
-              alt="Skool"
-              width={48}
-              height={48}
-              className="rounded-full"
+              src={link.src}
+              alt={link.alt}
+              width={link.width || '60%'}
+              height={link.height || 'auto'}
             />
           </a>
-          <a 
-            href="https://www.youtube.com/@ismaelfraser47" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="rounded-full overflow-hidden transform transition-transform hover:scale-110"
-          >
-            <img
-              src="/images/youtube-logo.svg"
-              alt="YouTube"
-              width={48}
-              height={48}
-              className="rounded-full"
-            />
-          </a>
-        </div>
+        ))}
+      </div>
     </div>
   );
 };

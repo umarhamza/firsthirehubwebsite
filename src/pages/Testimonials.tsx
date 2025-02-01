@@ -16,7 +16,7 @@ const Testimonials: React.FC = () => {
         />
 
         <div className="mt-12">
-          <MasonryReviews responsive={{ mobile: 1, tablet: 2, desktop: 3 }} />
+          <MasonryReviews responsive={{ mobile: 1, tablet: 2, desktop: 3 }} showTrustpilotBtn={false} />
         </div>
 
         <CardSimpleWithButton
