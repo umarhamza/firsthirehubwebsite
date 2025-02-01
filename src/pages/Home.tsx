@@ -36,7 +36,11 @@ const Home: React.FC = () => {
               businesses
             </p>
           </div>
-          <VideoTextReviewCards sectionClass="mb-6" />
+          <VideoTextReviewCards sectionClass="mb-12" />
+          
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-bold mb-4">Trustpilot Reviews</h2>
+          </div>
           <MasonryReviews responsive={{ mobile: 1, tablet: 2, desktop: 3 }} />
         </div>
       </section>

@@ -1,88 +1,10 @@
 import { useState } from 'react';
 import Modal from './Modal';
+import { videoReviews } from '../data/reviews';
 
 type Props = {
     sectionClass?: string
 }
-
-type VideoReview = {
-    youtubeVideoId: string
-    rating: number
-    title: string
-    review: string
-    reviewerName: string
-    company?: string | null
-}
-
-const videoReviews: VideoReview[] = [
-  {
-    youtubeVideoId: "_mJnfJ1DI0g",
-    rating: 5,
-    title: "Completely Blown Away !!!",
-    review: `
-    Good afternoon, folks! My name is Greg Dahl, and I want to give a big shout-out and testimonial to my friend Ismael from First Hire Hub.
-
-I can't recommend him enough! He recently helped me prepare for launching a community for men who are in toxic, narcissistic relationships—a subject I'm passionate about because of my personal experiences.
-
-What stood out to me was how Ismael went the extra mile. He didn't just listen; he challenged me. He wanted to truly understand my level of knowledge on the topic. His approach—honest, straightforward, and constructive—was exactly what I needed. Steel sharpens steel, and that's precisely what he brought to the table.
-
-We even did some role-playing during a simple Q&A call, which helped me refine my vision. And after the session, Ismael went above and beyond by sending me resources and documents to support the launch of my community.
-
-This man genuinely cares and will go that extra mile for you. I highly recommend working with him. Thanks again, Ismael!
-
-Have a great day!
-
-
-Gregory Dahl
-    `,
-    reviewerName: "Greg Dahl",
-    company: "Personal Development Coach"
-  },
-  {
-    youtubeVideoId: "wVMDTrVjm4w",
-    rating: 5,
-    title: "He has truly been a game-changer!",
-    review: `
-Ismael Fraser has been coaching me daily, and his insights have been a complete game-changer.
-I've worked with three different coaches and have been part of two other paid communities in the past. I thought I had my offer dialed in until we started this one-on-one coaching.
-
-He helped me realise that I was targeting the wrong audience, guided me in narrowing it down, and helped me get laser-focused. Now, we're working on refining my offer. His approach is honest, strategic, and genuinely impactful.
-
-The value he provides is incredible I know I should be paying much more for it. However, because of his integrity and honesty, he doesn't just raise his prices based on the immense value he's delivering.
-
-If you're a business coach looking to level up, I highly recommend working with Ismael and First Hire Hub.
-
-I cannot recommend him enough he has truly been a game-changer.
-    `,
-    reviewerName: "Keiron Mohamed",
-    company: "Business Coach"
-  },
-  {
-    youtubeVideoId: "TQSz46xFTOU",
-    rating: 5,
-    title: "Ismael Fraser's mentorship",
-    review: `
-Before Ismael Fraser's mentorship, I was stuck working for others, unsure how to break free and pursue my aspirations. I lacked confidence, clarity, and direction to start something of my own. But with Ismael's guidance, everything changed.
-
-Over three transformative years, he taught me how to create a clear roadmap, stay focused, and take consistent action. His support helped me overcome challenges, unlock my potential, and, by Allah's grace, transition from an employee to a successful educational entrepreneur.
-
-Today, I run a thriving business with momentum, a solid foundation, and a system that attracts paying students and 5-star reviews. What once felt like a distant dream is now a reality.
-
-I can't recommend Ismael enough—his mentorship is invaluable for anyone ready to transform their life and achieve their goals.
-    `,
-    reviewerName: "Wayne Rowe",
-    company: "CEO of Motiformance"
-  },
-  {
-    youtubeVideoId: 'TQSz46xFTOU',
-    company: null,
-    rating: 5,
-    reviewerName: "Bashir Vadia",
-    title: "Ismael Fraser has pushed me and…",
-    review: `Ismael Fraser has pushed me and motivated me to improve in everything I do and also away from business. This has been empowering and inspiring so that his knowledge can be used as artillery for my business to grow. I will continue to learn and develop more as i grow`,
-
-  }
-];
 
 const VideoTextReviewCards = ({ sectionClass = 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12' }:Props) => {
   const [selectedReview, setSelectedReview] = useState<typeof videoReviews[0] | null>(null);
@@ -157,8 +79,19 @@ const VideoTextReviewCards = ({ sectionClass = 'max-w-7xl mx-auto px-4 sm:px-6 l
         onClose={() => setSelectedReview(null)}
         title={selectedReview?.title || ''}
       >
-        <div className="space-y-4">
-          <div className="flex mb-2">
+        <div className="space-y-6">
+          {/* Video Embed in Modal */}
+          <div className="relative pt-[56.25%] bg-gray-100 -mx-6 -mt-6">
+            <iframe
+              src={`https://www.youtube.com/embed/${selectedReview?.youtubeVideoId}`}
+              className="absolute top-0 left-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+
+          {/* Rating */}
+          <div className="flex">
             {[...Array(selectedReview?.rating || 0)].map((_, i) => (
               <svg
                 key={i}
@@ -170,14 +103,22 @@ const VideoTextReviewCards = ({ sectionClass = 'max-w-7xl mx-auto px-4 sm:px-6 l
               </svg>
             ))}
           </div>
-          {selectedReview?.review.split('\n').filter(para => para.trim()).map((paragraph, i) => (
-            <p key={i} className="text-gray-600">
-              {paragraph.trim()}
-            </p>
-          ))}
-          <div className="mt-4 pt-4 border-t">
+
+          {/* Review Content */}
+          <div className="space-y-4">
+            {selectedReview?.review.split('\n').filter(para => para.trim()).map((paragraph, i) => (
+              <p key={i} className="text-gray-600">
+                {paragraph.trim()}
+              </p>
+            ))}
+          </div>
+
+          {/* Reviewer Info */}
+          <div className="pt-4 border-t">
             <p className="font-medium text-gray-900">{selectedReview?.reviewerName}</p>
-            <p className="text-gray-500">{selectedReview?.company}</p>
+            {selectedReview?.company && (
+              <p className="text-gray-500">{selectedReview.company}</p>
+            )}
           </div>
         </div>
       </Modal>

@@ -1,6 +1,7 @@
 import { SquareArrowOutUpRight } from "lucide-react";
 import { ResponsiveMasonry } from "react-responsive-masonry";
 import Masonry from "react-responsive-masonry";
+import { trustpilotScreenshots } from "../data/trustpilot-screenshots"
 
 interface Props {
   showTrustpilotBtn?: boolean
@@ -13,21 +14,11 @@ interface Props {
 
 const MasonryReviews = ({showTrustpilotBtn = true, responsive }: Props) => {
   const { mobile = 1, tablet = 2, desktop = 3 } = responsive || {};
-  const reviews = [
-    "/images/reviews/first-hire-hub-review-1.png",
-    "/images/reviews/first-hire-hub-review-2.png",
-    "/images/reviews/first-hire-hub-review-3.png",
-    "/images/reviews/first-hire-hub-review-4.png",
-    "/images/reviews/first-hire-hub-review-5.png",
-    "/images/reviews/first-hire-hub-review-6.png",
-    "/images/reviews/first-hire-hub-review-7.png",
-  ];
-
   return (
     <div>
       <ResponsiveMasonry columnsCountBreakPoints={{ 350: mobile, 750: tablet, 1000: desktop }}>
         <Masonry gutter="20px">
-          {reviews.map((review, index) => (
+          {trustpilotScreenshots.map((review, index) => (
             <div
               key={index}
               className="bg-white rounded-lg shadow-md overflow-hidden"
