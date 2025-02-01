@@ -6,6 +6,7 @@ import MasonryReviews from "../components/MasonryReviews";
 import FreeBonusWhenYouJoin from "../components/content/FreeBonusWhenYouJoin";
 import JoinCommunity from "../components/content/JoinCommunity";
 import BusinessKickstarterBlueprint from "../components/content/BusinessKickstarterBlueprint";
+import VideoTextReviewCards from "../components/VideoTextReviewCards";
 
 const Home: React.FC = () => {
   const scrollToSection = (id: string) => {
@@ -35,12 +36,12 @@ const Home: React.FC = () => {
               businesses
             </p>
           </div>
+          <VideoTextReviewCards sectionClass="mb-6" />
           <MasonryReviews responsive={{ mobile: 1, tablet: 2, desktop: 3 }} />
         </div>
       </section>
       <JoinCommunity />
       <FreeBonusWhenYouJoin />
-
       <ContactSection dark={true} />
     </>
   );
