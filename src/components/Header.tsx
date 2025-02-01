@@ -48,16 +48,16 @@ export default function Header() {
                   href={item.path}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-gray-900 flex items-center justify-between gap-2"
+                  className="text-gray-700 hover:text-blue-600 flex items-center justify-between gap-2"
                 >
                   {item.label}
-                  <SquareArrowOutUpRight />
+                  <SquareArrowOutUpRight className="h-4 w-4" />
                 </a>
               ) : (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="text-gray-700 hover:text-gray-900"
+                  className="text-gray-700 hover:text-blue-600"
                 >
                   {item.label}
                 </Link>
@@ -93,15 +93,15 @@ export default function Header() {
                   href={item.path}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 text-gray-700 hover:bg-gray-100 flex items-center justify-between gap-2"
+                  className="px-4 py-2 text-gray-700 hover:text-blue-600 flex items-center justify-between gap-2"
                 >
-                  {item.label} <SquareArrowOutUpRight />
+                  {item.label} <SquareArrowOutUpRight className="h-4 w-4" />
                 </a>
               ) : (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                  className="block px-4 py-2 text-gray-700 hover:text-blue-600"
                   onClick={handleLinkClick}
                 >
                   {item.label}
