@@ -1,4 +1,4 @@
-import { ArrowUpRight, BarChart, Calendar, Target } from "lucide-react";
+import { SquareArrowOutUpRight, BarChart, Calendar, Target } from "lucide-react";
 import Card from "../Card";
 
 const BusinessKickstarterBlueprint = () => {
@@ -51,7 +51,7 @@ const BusinessKickstarterBlueprint = () => {
           rel="noopener noreferrer"
           className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
-          Join the Free Kickstart Now! <ArrowUpRight />
+          Join the Free Kickstart Now! <SquareArrowOutUpRight />
         </a>
       </div>
     </div>

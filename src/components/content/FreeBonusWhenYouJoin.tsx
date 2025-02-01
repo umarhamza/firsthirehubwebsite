@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { SquareArrowOutUpRight } from "lucide-react";
 
 const FreeBonusWhenYouJoin = () => {
   const content = [
@@ -46,7 +46,7 @@ const FreeBonusWhenYouJoin = () => {
           rel="noopener noreferrer"
           className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
-          Join the Community for FREE <ArrowUpRight/>
+          Join the Community for FREE <SquareArrowOutUpRight/>
         </a>
       </div>
     </div>

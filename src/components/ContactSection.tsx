@@ -1,4 +1,4 @@
-import { ArrowUpRight, Calendar, Mail, Phone } from 'lucide-react';
+import { SquareArrowOutUpRight, Calendar, Mail, Phone } from 'lucide-react';
 import ContactForm from './ContactForm';
 import SocialMedia from './SocialMedia';
 import BookOneOnOne from './content/BookOneOnOne';
@@ -58,7 +58,7 @@ export default function ContactSection({ dark, showBooking = true, bookingBgClas
 
                   <span
                   className="text-gray-600 hover:text-blue-600 flex items-center"
-                  >Schedule on Calendly<ArrowUpRight className="h-4 w-4" /></span> 
+                  >Schedule on Calendly<SquareArrowOutUpRight className="h-4 w-4" /></span> 
                 </a>
               </div>
             </div>

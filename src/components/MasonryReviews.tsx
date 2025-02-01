@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { SquareArrowOutUpRight } from "lucide-react";
 import { ResponsiveMasonry } from "react-responsive-masonry";
 import Masonry from "react-responsive-masonry";
 
@@ -49,7 +49,7 @@ const MasonryReviews = ({showTrustpilotBtn = true, responsive }: Props) => {
             rel="noopener noreferrer"
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
-            View Reviews on Trustpilot <ArrowUpRight />
+            View Reviews on Trustpilot <SquareArrowOutUpRight />
           </a>
         </div>
       )}

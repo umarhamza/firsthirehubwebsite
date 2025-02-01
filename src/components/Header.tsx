@@ -1,4 +1,4 @@
-import { Users, Menu, X } from 'lucide-react';
+import { Users, Menu, X, SquareArrowOutUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Button from './Button';
@@ -8,6 +8,17 @@ import ContactForm from './ContactForm';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const navigationItems = [
+    { path: '/', label: 'Home' },
+    { path: '/our-work', label: 'Our Work' },
+    { path: '/testimonials', label: 'Testimonials' },
+    { 
+      path: 'https://www.youtube.com/@ismaelfraser47', 
+      label: 'YouTube',
+      isExternal: true 
+    },
+  ];
 
   const openModal = () => {
     setIsModalOpen(true)
@@ -30,15 +41,28 @@ export default function Header() {
             </Link>
           </div>
           <div className="hidden ml-auto mr-6 md:flex space-x-6">
-            <Link to="/" className="text-gray-700 hover:text-gray-900">
-              Home
-            </Link>
-            <Link to="/our-work" className="text-gray-700 hover:text-gray-900">
-              Our Work
-            </Link>
-            <Link to="/testimonials" className="text-gray-700 hover:text-gray-900">
-              Testimonials
-            </Link>
+            {navigationItems.map((item) => (
+              item.isExternal ? (
+                <a 
+                  key={item.path}
+                  href={item.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:text-gray-900 flex items-center justify-between gap-2"
+                >
+                  {item.label}
+                  <SquareArrowOutUpRight />
+                </a>
+              ) : (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className="text-gray-700 hover:text-gray-900"
+                >
+                  {item.label}
+                </Link>
+              )
+            ))}
           </div>
           <button 
             onClick={openModal}
@@ -62,27 +86,28 @@ export default function Header() {
 
         {isMenuOpen && (
           <div className="md:hidden mt-2 py-2 space-y-2 text-center">
-            <Link 
-              to="/" 
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              onClick={handleLinkClick}
-            >
-              Home
-            </Link>
-            <Link 
-              to="/our-work" 
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              onClick={handleLinkClick}
-            >
-              Our Work
-            </Link>
-            <Link 
-              to="/testimonials" 
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              onClick={handleLinkClick}
-            >
-              Testimonials
-            </Link>
+            {navigationItems.map((item) => (
+              item.isExternal ? (
+                <a 
+                  key={item.path}
+                  href={item.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 text-gray-700 hover:bg-gray-100 flex items-center justify-between gap-2"
+                >
+                  {item.label} <SquareArrowOutUpRight />
+                </a>
+              ) : (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                  onClick={handleLinkClick}
+                >
+                  {item.label}
+                </Link>
+              )
+            ))}
             <Button className='!mt-4' onClick={openModal}>Get Started</Button>
           </div>
         )}
