@@ -51,6 +51,7 @@ const Home: React.FC = () => {
           
           <div className="text-center mb-6">
             <h2 className="text-3xl font-bold mb-4">Trustpilot Reviews</h2>
+            <p className="text-gray-600">See what our clients have to say about working with us</p>
           </div>
           <MasonryReviews responsive={{ mobile: 1, tablet: 2, desktop: 3 }} />
         </div>
