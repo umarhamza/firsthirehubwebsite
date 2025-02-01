@@ -40,14 +40,14 @@ const FreeBonusWhenYouJoin = () => {
         ))}
       </div>
       <div className="mt-12 text-center">
-        <a
+        <p className="text-gray-600">Ready to get started? <a
           href="https://www.skool.com/first-hire-hub-7163/about"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="text-blue-600 hover:text-blue-700 inline-flex items-center"
         >
-          Join the Community for FREE <SquareArrowOutUpRight/>
-        </a>
+          Join our community for free <SquareArrowOutUpRight className="ml-1 h-4 w-4"/>
+        </a></p>
       </div>
     </div>
   </section>

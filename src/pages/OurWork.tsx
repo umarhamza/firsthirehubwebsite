@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { ArrowDown, SquareArrowOutUpRight } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import Hero from '../components/Hero';
@@ -12,6 +13,16 @@ const OurWork: React.FC = () => {
   };
   return (
     <div className="bg-gradient-to-r from-blue-50 to-indigo-50">
+      <Helmet>
+        <title>Our Work - First Hire Hub | Business Growth Success Stories</title>
+        <meta name="description" content="Discover how we've helped business coaches and entrepreneurs build authority and attract quality leads. View our portfolio of successful digital transformations." />
+        <meta name="keywords" content="business success stories, digital transformation, business coaching results, lead generation case studies" />
+        <meta property="og:title" content="Our Work - First Hire Hub | Business Growth Success Stories" />
+        <meta property="og:description" content="Discover how we've helped business coaches and entrepreneurs build authority and attract quality leads." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://firsthirehub.com/our-work" />
+        <link rel="canonical" href="https://firsthirehub.com/our-work" />
+      </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <Hero
           heading="Transform Your Brand's Digital Presence <span class='block text-blue-600'>With Proven Systems</span>"

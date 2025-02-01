@@ -25,7 +25,7 @@ const MasonryReviews = ({showTrustpilotBtn = true, responsive }: Props) => {
             >
               <img 
                 src={review}
-                alt={`Client review ${index + 1}`}
+                alt={`First Hire Hub Trustpilot review - Client success story ${index + 1}`}
                 className="w-full h-auto"
               />
             </div>

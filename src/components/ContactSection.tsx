@@ -35,7 +35,7 @@ export default function ContactSection({ dark, showBooking = true, bookingBgClas
               <Mail className="h-6 w-6 text-blue-600 mt-1" />
               <div>
                 <h6 className="font-semibold text-gray-900">Email</h6>
-                <p className="text-gray-600">ismaelfraser47@gmail.com</p>
+                <a href="mailto:ismaelfraser47@gmail.com" className="text-gray-600 hover:text-blue-600">ismaelfraser47@gmail.com</a>
               </div>
             </div>
             <div className="flex items-start space-x-4">

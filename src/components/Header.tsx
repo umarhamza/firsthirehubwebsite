@@ -10,13 +10,14 @@ export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const navigationItems = [
-    { path: '/', label: 'Home' },
-    { path: '/our-work', label: 'Our Work' },
-    { path: '/testimonials', label: 'Testimonials' },
+    { path: '/', label: 'Home', ariaLabel: 'Go to homepage' },
+    { path: '/our-work', label: 'Our Work', ariaLabel: 'View our client success stories and portfolio' },
+    { path: '/testimonials', label: 'Testimonials', ariaLabel: 'Read client testimonials and reviews' },
     { 
       path: 'https://www.youtube.com/@ismaelfraser47', 
       label: 'YouTube',
-      isExternal: true 
+      isExternal: true,
+      ariaLabel: 'Visit our YouTube channel for business growth tips'
     },
   ];
 
@@ -48,6 +49,7 @@ export default function Header() {
                   href={item.path}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={item.ariaLabel}
                   className="text-gray-700 hover:text-blue-600 flex items-center justify-between gap-2"
                 >
                   {item.label}
@@ -57,6 +59,7 @@ export default function Header() {
                 <Link
                   key={item.path}
                   to={item.path}
+                  aria-label={item.ariaLabel}
                   className="text-gray-700 hover:text-blue-600"
                 >
                   {item.label}
@@ -93,6 +96,7 @@ export default function Header() {
                   href={item.path}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={item.ariaLabel}
                   className="px-4 py-2 text-gray-700 hover:text-blue-600 flex items-center justify-between gap-2"
                 >
                   {item.label} <SquareArrowOutUpRight className="h-4 w-4" />
@@ -101,6 +105,7 @@ export default function Header() {
                 <Link
                   key={item.path}
                   to={item.path}
+                  aria-label={item.ariaLabel}
                   className="block px-4 py-2 text-gray-700 hover:text-blue-600"
                   onClick={handleLinkClick}
                 >
