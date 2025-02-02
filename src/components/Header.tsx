@@ -97,7 +97,7 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={item.ariaLabel}
-                  className="px-4 py-2 text-gray-700 hover:text-blue-600 flex items-center justify-between gap-2"
+                  className="px-4 py-2 text-gray-700 hover:text-blue-600 flex items-center justify-center gap-2"
                 >
                   {item.label} <SquareArrowOutUpRight className="h-4 w-4" />
                 </a>
