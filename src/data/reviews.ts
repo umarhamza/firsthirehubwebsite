@@ -75,7 +75,7 @@ I can't recommend Ismael enough—his mentorship is invaluable for anyone ready 
     youtubeVideoId: "bP3eBTYeXj0",
   },
   {
-    youtubeVideoId: "TQSz46xFTOU",
+    youtubeVideoId: "6LKzJa9Tars",
     company: null,
     rating: 5,
     reviewerName: "Bashir Vadia",
