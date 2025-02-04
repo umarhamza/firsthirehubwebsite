@@ -6,7 +6,6 @@ import ContactSection from "../components/ContactSection";
 import MasonryReviews from "../components/MasonryReviews";
 import FreeBonusWhenYouJoin from "../components/content/FreeBonusWhenYouJoin";
 import JoinCommunity from "../components/content/JoinCommunity";
-import BusinessKickstarterBlueprint from "../components/content/BusinessKickstarterBlueprint";
 import VideoTextReviewCards from "../components/VideoTextReviewCards";
 
 const Home: React.FC = () => {
@@ -32,12 +31,9 @@ const Home: React.FC = () => {
           <br className="hidden md:block" />& Grow your <span class="text-blue-600">Business</span>`}
         description="We'll help you define your target audience, craft compelling offers, grow your profile, attract leads, and build authority through testimonials and reviews."
         buttonOneLabel="Book Free Consultation"
-        buttonTwoLabel="Join Free Kickstart"
         buttonOneClickHandler={() => scrollToSection("booking")}
-        buttonTwoClickHandler={() => scrollToSection("kickstart")}
         buttonOneArrow={ArrowRight}
       />
-      <BusinessKickstarterBlueprint />
       <section className="bg-blue-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
