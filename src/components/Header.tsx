@@ -14,7 +14,7 @@ export default function Header() {
     { path: '/our-work', label: 'Our Work', ariaLabel: 'View our client success stories and portfolio' },
     { path: '/testimonials', label: 'Testimonials', ariaLabel: 'Read client testimonials and reviews' },
     { 
-      path: 'https://www.youtube.com/@ismaelfraser47', 
+      path: 'https://www.youtube.com/@ismaelfraser47/playlists', 
       label: 'YouTube',
       isExternal: true,
       ariaLabel: 'Visit our YouTube channel for business growth tips'

@@ -14,7 +14,7 @@ const socialLinks: SocialMediaLinks[] = [
     width: '90%'
   },
   {
-    href: "https://www.youtube.com/@ismaelfraser47",
+    href: "https://www.youtube.com/@ismaelfraser47/playlists",
     src: "/images/youtube-logo.svg",
     alt: "Watch First Hire Hub business growth videos on YouTube",
     width: '90%'
