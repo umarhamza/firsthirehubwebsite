@@ -75,8 +75,7 @@ const LandingPage: React.FC = () => {
               <img 
                 src="/images/Keiron Mohamed.png" 
                 alt="Video thumbnail" 
-                className="w-full h-96 object-cover rounded-xl"
-                style={{objectPosition: 'center -110px'}}
+                className="w-full h-96 md:h-[500px] object-cover rounded-xl"
               />
             </div>
           </div>
