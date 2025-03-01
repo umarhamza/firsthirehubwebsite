@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "cd netlify/functions && npm install || echo 'Function dependencies installation failed, but continuing'",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
