@@ -40,7 +40,7 @@ const PDFDownloader: React.FC<PDFDownloaderProps> = ({ userName, userEmail }) =>
           href="https://calendly.com/ismaelfraser47/30min" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-block px-5 py-2 bg-white border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 transition-colors"
+          className="inline-block px-5 py-2 text-blue-600 transition-colors"
         >
           Book Your Free Call
         </a>

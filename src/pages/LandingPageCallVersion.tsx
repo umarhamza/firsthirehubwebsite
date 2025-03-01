@@ -56,7 +56,7 @@ const LandingPageCallVersion: React.FC = () => {
           
           {/* Video Section */}
           <div className="mt-12 max-w-3xl mx-auto">
-            <h6 className="text-lg font-bold text-center text-gray-700 mb-2 italic">Watch Keiron's transformation story</h6>
+            <h6 className="text-xl font-bold text-center text-gray-700 mb-2 italic">Watch Keiron's transformation story</h6>
             <div 
               className="relative rounded-xl overflow-hidden shadow-xl cursor-pointer"
               onClick={toggleVideo}
