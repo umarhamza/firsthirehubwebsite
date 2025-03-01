@@ -14,7 +14,7 @@ export default function Footer() {
             Helping coaches and entrepreneurs find clarity and grow their businesses.
           </p>
           
-          <div className="flex space-x-4 mb-8">
+          <div className="flex space-x-4 mb-8 flex-wrap justify-center">
             <a 
               href="https://calendly.com/ismaelfraser47/30min"
               target="_blank"

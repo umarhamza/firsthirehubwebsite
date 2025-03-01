@@ -93,14 +93,14 @@ const ThankYou: React.FC = () => {
                 Get personalized guidance on implementing the strategies in your
                 guide during a free 30-minute call.
               </p>
-              <a
+              {hasEmail && <a
                 href="https://calendly.com/ismaelfraser47/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 font-medium hover:text-blue-700 inline-flex items-center"
               >
                 Schedule Your Call <ArrowRight className="ml-1 h-4 w-4" />
-              </a>
+              </a>}
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 text-center">
@@ -114,14 +114,14 @@ const ThankYou: React.FC = () => {
                 Connect with like-minded entrepreneurs and get ongoing support
                 in our exclusive Skool community.
               </p>
-              <a
+              {hasEmail && <a
                 href="https://www.skool.com/first-hire-hub-7163/about"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 font-medium hover:text-blue-700 inline-flex items-center"
               >
                 Join Now <ArrowRight className="ml-1 h-4 w-4" />
-              </a>
+              </a>}
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 text-center">
@@ -189,14 +189,14 @@ const ThankYou: React.FC = () => {
             Book your free strategy call today and get personalized guidance on
             implementing the strategies in your guide.
           </p>
-          <a
+          {hasEmail && <a
             href="https://calendly.com/ismaelfraser47/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-blue-600 px-8 py-3 rounded-full hover:bg-gray-100 transition-colors inline-flex items-center font-medium"
           >
             Book Your Free Call <ArrowRight className="ml-2" />
-          </a>
+          </a>}
         </div>
       </section>
       {/* Modals */}

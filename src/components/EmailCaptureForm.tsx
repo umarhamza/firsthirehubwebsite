@@ -1,6 +1,7 @@
 import emailjs from '@emailjs/browser';
 import { useState } from 'react';
 import { CheckCircle, Loader2 } from "lucide-react";
+import PDFDownloader from './PDFDownloader';
 
 type Props = {
     type: 'pdf' | 'call' | 'community'
@@ -10,9 +11,7 @@ type Props = {
 }
 
 export default function EmailCaptureForm ({ type, setIsPdfModalOpen, setIsCallModalOpen, setIsCommunityModalOpen }: Props) {
-
-
-      // State for form values and submission status
+  // State for form values and submission status
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -24,14 +23,17 @@ export default function EmailCaptureForm ({ type, setIsPdfModalOpen, setIsCallMo
     success: false
   });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setValues(prev => ({
-          ...prev,
-          [e.target.name]: e.target.value
-        }));
-      };
+  // State to show PDF downloader after successful PDF form submission
+  const [showPdfDownloader, setShowPdfDownloader] = useState(false);
 
-        // Form submission handler
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValues(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  // Form submission handler
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, type: 'pdf' | 'call' | 'community') => {
     e.preventDefault();
     setStatus({ loading: true, error: null, success: false });
@@ -73,14 +75,19 @@ export default function EmailCaptureForm ({ type, setIsPdfModalOpen, setIsCallMo
         (response) => {
           setStatus({ loading: false, error: null, success: true });
           
-          // Close modals and redirect after a short delay
-          setTimeout(() => {
-            setIsPdfModalOpen(false);
-            setIsCallModalOpen(false);
-            setIsCommunityModalOpen(false);
-            
-            window.location.href = redirectUrl;
-          }, 1500);
+          // For PDF type, show the PDF downloader instead of redirecting
+          if (type === 'pdf') {
+            setShowPdfDownloader(true);
+          } else {
+            // For other types, redirect after a short delay
+            setTimeout(() => {
+              setIsPdfModalOpen(false);
+              setIsCallModalOpen(false);
+              setIsCommunityModalOpen(false);
+              
+              window.location.href = redirectUrl;
+            }, 1500);
+          }
           
           console.log('SUCCESS!', response.status, response.text);
         },
@@ -95,7 +102,12 @@ export default function EmailCaptureForm ({ type, setIsPdfModalOpen, setIsCallMo
       );
   };
 
-    return (
+  // If showing PDF downloader, render that instead of the form
+  if (showPdfDownloader) {
+    return <PDFDownloader userName={values.name} userEmail={values.email} />;
+  }
+
+  return (
     <form onSubmit={(e) => handleSubmit(e, type)} className="space-y-4">
       {status.loading && (
         <div className="text-blue-600 bg-blue-100 pt-2 pb-2.5 px-3 rounded-md flex items-center">
@@ -105,7 +117,7 @@ export default function EmailCaptureForm ({ type, setIsPdfModalOpen, setIsCallMo
       {status.error && (
         <div className="text-red-600 bg-red-100 pt-2 pb-2.5 px-3 rounded-md">{status.error}</div>
       )}
-      {status.success && (
+      {status.success && !showPdfDownloader && (
         <div className="text-green-600 bg-green-100 pt-2 pb-2.5 px-3 rounded-md flex items-center">
           <CheckCircle className="h-5 w-5 mr-2" /> Success! Redirecting you...
         </div>
