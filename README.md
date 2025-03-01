@@ -27,6 +27,37 @@ The landing page has been updated with the following features:
 
 All CTAs on the page (PDF download, call booking, and community join) now include modal forms that capture the visitor's name and email before proceeding.
 
+## Mailchimp Integration
+
+The website now integrates with Mailchimp for email capture forms. Due to CORS restrictions, a server-side component is required:
+
+1. **Server Setup**
+   - For local development, navigate to the `server` directory
+   - Follow the instructions in the server's README.md to set up the API server
+   - This server acts as a proxy for Mailchimp API calls to avoid CORS issues
+
+2. **Development Workflow**
+   - Start the API server: `cd server && npm run dev`
+   - Start the frontend: `npm run dev`
+   - The frontend will automatically connect to the local API server
+
+3. **Production Deployment**
+   - For Netlify deployment, see the [Netlify Deployment Guide](NETLIFY-DEPLOYMENT.md)
+   - For other hosting platforms, deploy the API server separately and update the API URL in `src/utils/mailchimp.ts`
+
+## Netlify Deployment
+
+This project is configured for easy deployment to Netlify, including serverless functions for the Mailchimp integration:
+
+1. **Netlify Functions**
+   - The `netlify/functions` directory contains serverless functions for the Mailchimp integration
+   - These functions replace the Express server for production deployment on Netlify
+
+2. **Local Development with Netlify**
+   - Run `npm run netlify:dev` to test the site with Netlify Functions locally
+
+For detailed deployment instructions, see the [Netlify Deployment Guide](NETLIFY-DEPLOYMENT.md).
+
 ## Development
 
 To run the development server:

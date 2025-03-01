@@ -1,14 +1,5 @@
-import mailchimp from "@mailchimp/mailchimp_marketing";
-import crypto from "crypto";
-
-// Initialize the Mailchimp client
-mailchimp.setConfig({
-  apiKey: import.meta.env.VITE_MAILCHIMP_API_KEY,
-  server: "us16", // This is extracted from the API key (us16)
-});
-
 /**
- * Add a subscriber to a Mailchimp audience
+ * Add a subscriber to a Mailchimp audience via our Netlify Function
  * @param email - The subscriber's email address
  * @param name - The subscriber's name
  * @param tags - Optional tags to add to the subscriber
@@ -22,102 +13,34 @@ export const addSubscriberToMailchimp = async (
   try {
     console.log(`Adding subscriber to Mailchimp: ${email} (${name})`);
 
-    // Split the name into first and last name
-    const nameParts = name.split(" ");
-    const firstName = nameParts[0] || "";
-    const lastName = nameParts.slice(1).join(" ") || "";
+    // Determine the API URL based on environment
+    // In production, Netlify will handle the redirect from /api/subscribe to /.netlify/functions/subscribe
+    const apiUrl = import.meta.env.DEV
+      ? "http://localhost:8888/.netlify/functions/subscribe" // Netlify dev server port
+      : "/api/subscribe"; // Will be redirected to /.netlify/functions/subscribe in production
 
-    // Add subscriber to list
-    const response = await mailchimp.lists.addListMember(
-      import.meta.env.VITE_MAILCHIMP_AUDIENCE_ID,
-      {
-        email_address: email,
-        status: "subscribed",
-        merge_fields: {
-          FNAME: firstName,
-          LNAME: lastName,
-        },
-        tags: tags,
-      }
-    );
+    // Call our Netlify Function
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        name,
+        tags,
+      }),
+    });
 
-    console.log("Successfully added subscriber to Mailchimp:", response.id);
-    return { success: true, data: response };
-  } catch (error: unknown) {
-    // Handle specific Mailchimp errors
-    if (
-      error &&
-      typeof error === "object" &&
-      "response" in error &&
-      error.response &&
-      typeof error.response === "object" &&
-      "body" in error.response
-    ) {
-      const errorResponse = error.response as {
-        body: { title?: string; detail?: string; status?: number };
-      };
-      const { title, detail, status } = errorResponse.body;
+    const result = await response.json();
 
-      // Handle member already exists error (status 400 with specific title)
-      if (status === 400 && title === "Member Exists") {
-        console.log(`Subscriber ${email} already exists in Mailchimp list`);
-
-        try {
-          // Split the name into first and last name again for the update
-          const nameParts = name.split(" ");
-          const firstName = nameParts[0] || "";
-          const lastName = nameParts.slice(1).join(" ") || "";
-
-          // Update the existing member's tags instead
-          const subscriberHash = crypto
-            .createHash("md5")
-            .update(email.toLowerCase())
-            .digest("hex");
-
-          // Get the member to check current tags
-          const member = await mailchimp.lists.getListMember(
-            import.meta.env.VITE_MAILCHIMP_AUDIENCE_ID,
-            subscriberHash
-          );
-
-          // Update the member with new tags (adding to existing ones)
-          const currentTags =
-            member.tags?.map((tag: { name: string }) => tag.name) || [];
-          const uniqueTags = [...new Set([...currentTags, ...tags])];
-
-          await mailchimp.lists.updateListMember(
-            import.meta.env.VITE_MAILCHIMP_AUDIENCE_ID,
-            subscriberHash,
-            {
-              merge_fields: {
-                FNAME: firstName,
-                LNAME: lastName,
-              },
-              tags: uniqueTags,
-            }
-          );
-
-          console.log(`Updated existing subscriber ${email} with new tags`);
-          return {
-            success: true,
-            data: { id: subscriberHash, status: "updated" },
-          };
-        } catch (updateError) {
-          console.error("Error updating existing subscriber:", updateError);
-          return {
-            success: false,
-            error: "Error updating existing subscriber information",
-          };
-        }
-      }
-
-      console.error("Mailchimp API error:", { title, detail, status });
-      return {
-        success: false,
-        error: detail || title || "Unknown Mailchimp API error",
-      };
+    if (!response.ok) {
+      throw new Error(result.error || "Failed to add subscriber");
     }
 
+    console.log("Successfully added subscriber to Mailchimp:", result.data?.id);
+    return result;
+  } catch (error) {
     console.error("Error adding subscriber to Mailchimp:", error);
     return {
       success: false,
