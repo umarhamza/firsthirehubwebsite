@@ -1,7 +1,7 @@
-import emailjs from '@emailjs/browser';
 import { useState } from 'react';
 import { CheckCircle, Loader2 } from "lucide-react";
 import PDFDownloader from './PDFDownloader';
+import { addSubscriberToMailchimp } from '../utils/mailchimp';
 
 type Props = {
     type: 'pdf' | 'call' | 'community'
@@ -38,68 +38,59 @@ export default function EmailCaptureForm ({ type, setIsPdfModalOpen, setIsCallMo
     e.preventDefault();
     setStatus({ loading: true, error: null, success: false });
     
-    let message = "";
+    let tags = [];
     let redirectUrl = "";
     
     switch(type) {
       case 'pdf':
-        message = "PDF Download Request: Finding Your North Star";
+        tags = ["PDF Download", "Finding Your North Star"];
         redirectUrl = `/thank-you?email=${values.email}`;
         break;
       case 'call':
-        message = "Call Booking Request";
+        tags = ["Call Booking"];
         redirectUrl = "https://calendly.com/ismaelfraser47/30min";
         break;
       case 'community':
-        message = "Community Join Request";
+        tags = ["Community Join"];
         redirectUrl = "https://www.skool.com/first-hire-hub-7163/about";
         break;
     }
 
-    const templateParams = {
-      from_name: values.name,
-      reply_to: values.email,
-      message: message,
-    };
-
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID!,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
-        templateParams,
-        {
-          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY!,
+    try {
+      // Add subscriber to Mailchimp
+      const result = await addSubscriberToMailchimp(values.email, values.name, tags);
+      
+      if (result.success) {
+        setStatus({ loading: false, error: null, success: true });
+        
+        // For PDF type, show the PDF downloader instead of redirecting
+        if (type === 'pdf') {
+          setShowPdfDownloader(true);
+        } else {
+          // For other types, redirect after a short delay
+          setTimeout(() => {
+            setIsPdfModalOpen(false);
+            setIsCallModalOpen(false);
+            setIsCommunityModalOpen(false);
+            
+            window.location.href = redirectUrl;
+          }, 1500);
         }
-      )
-      .then(
-        (response) => {
-          setStatus({ loading: false, error: null, success: true });
-          
-          // For PDF type, show the PDF downloader instead of redirecting
-          if (type === 'pdf') {
-            setShowPdfDownloader(true);
-          } else {
-            // For other types, redirect after a short delay
-            setTimeout(() => {
-              setIsPdfModalOpen(false);
-              setIsCallModalOpen(false);
-              setIsCommunityModalOpen(false);
-              
-              window.location.href = redirectUrl;
-            }, 1500);
-          }
-          
-          console.log('SUCCESS!', response.status, response.text);
-        },
-        (error) => {
-          setStatus({ 
-            loading: false, 
-            error: 'Failed to process your request. Please try again later.', 
-            success: false 
-          });
-          console.log('FAILED...', error);
-        }
-      );
+      } else {
+        setStatus({ 
+          loading: false, 
+          error: result.error || 'Failed to process your request. Please try again later.', 
+          success: false 
+        });
+      }
+    } catch (error) {
+      setStatus({ 
+        loading: false, 
+        error: error instanceof Error ? error.message : 'Failed to process your request. Please try again later.', 
+        success: false 
+      });
+      console.error('Error in form submission:', error);
+    }
   };
 
   // If showing PDF downloader, render that instead of the form

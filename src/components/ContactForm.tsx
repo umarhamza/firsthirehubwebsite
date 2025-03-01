@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { Loader2, CheckCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
+/**
+ * Contact Form Component
+ * This form uses EmailJS for sending contact form submissions.
+ * Note: This form should continue to use EmailJS, while capture forms use Mailchimp.
+ */
 const ContactForm: React.FC = () => {
     const [values, setValues] = useState({
         name: '',
