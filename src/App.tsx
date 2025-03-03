@@ -6,6 +6,7 @@ import CenteredLogoHeader from "./components/CenteredLogoHeader"
 import ABTestRouter from './components/ABTestRouter';
 import Terms from './pages/Terms';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import ThankYou from './pages/ThankYou';
 
 // import LandingPage from './pages/LandingPage';
 // import ThankYou from './pages/ThankYou';
@@ -23,8 +24,8 @@ const AppContent = () => {
           
           {/* Direct Routes for Testing */}
           {/* <Route path="/guide" element={<LandingPage />} />
-          <Route path="/call" element={<LandingPageCallVersion />} />
-          <Route path="/thank-you" element={<ThankYou />} /> */}
+          <Route path="/call" element={<LandingPageCallVersion />} />*/}
+          <Route path="/thank-you" element={<ThankYou />} /> 
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
