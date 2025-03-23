@@ -1,6 +1,4 @@
 import React from 'react';
-import { PDFDownloadLink } from '@react-pdf/renderer';
-import PDFGuideTemplate from './PDFGuideTemplate';
 import { ArrowDown } from 'lucide-react';
 
 interface PDFDownloaderProps {
@@ -15,17 +13,13 @@ const PDFDownloader: React.FC<PDFDownloaderProps> = ({ userName, userEmail }) =>
         Thank you, {userName}! Your guide is ready to download.
       </p>
       
-      <PDFDownloadLink
-        document={<PDFGuideTemplate />}
-        fileName="Finding_Your_North_Star_Guide.pdf"
+      <a
+        href="/pdfs/Finding_Your_North_Star_Guide.pdf"
+        download="Finding_Your_North_Star_Guide.pdf"
         className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
       >
-        {({ loading }) => 
-          loading ? 
-            'Preparing your guide...' : 
-            <>Download Your Guide <ArrowDown className="ml-2 h-5 w-5" /></>
-        }
-      </PDFDownloadLink>
+        Download Your Guide <ArrowDown className="ml-2 h-5 w-5" />
+      </a>
       
       <p className="mt-6 text-sm text-gray-500">
         We've also sent a copy to {userEmail} for your convenience.
