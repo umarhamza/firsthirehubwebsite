@@ -25,7 +25,7 @@ const AppContent = () => {
           {/* Direct Routes for Testing */}
           {/* <Route path="/guide" element={<LandingPage />} />
           <Route path="/call" element={<LandingPageCallVersion />} />*/}
-          <Route path="/thank-you" element={<ThankYou />} /> 
+          {/* <Route path="/thank-you" element={<ThankYou />} />  */}
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
