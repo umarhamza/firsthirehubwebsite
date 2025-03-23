@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle, Play } from "lucide-react";
 import Modal from "../components/Modal";
 import MasonryReviews from "../components/MasonryReviews";
 import VideoTextReviewCards from "../components/VideoTextReviewCards";
-import EmailCaptureForm from "../components/EmailCaptureForm";
+import MailchimpForm from "../components/MailchimpForm";
 
 // A/B testing version - either 'guide' or 'call'
 const AB_TEST_VERSION = "guide";
@@ -417,6 +417,21 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Add Mailchimp Newsletter Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Join Our Newsletter
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Get the latest resources, business tips, and exclusive content delivered straight to your inbox
+            </p>
+          </div>
+          <MailchimpForm className="mt-8" />
+        </div>
+      </section>
+
       {/* Final CTA Section */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -443,11 +458,9 @@ const LandingPage: React.FC = () => {
         onClose={() => setIsPdfModalOpen(false)}
         title="Get Your Free Business Clarity Guide"
       >
-        <EmailCaptureForm
-          setIsPdfModalOpen={setIsPdfModalOpen}
-          setIsCallModalOpen={setIsCallModalOpen}
-          setIsCommunityModalOpen={setIsCommunityModalOpen}
-          type="pdf"
+        <MailchimpForm 
+          title="Get Your Free North Star Guide" 
+          description="Enter your details below to receive your free guide to business clarity and confidence." 
         />
       </Modal>
 
@@ -456,11 +469,9 @@ const LandingPage: React.FC = () => {
         onClose={() => setIsCallModalOpen(false)}
         title="Book Your Free Strategy Call"
       >
-        <EmailCaptureForm
-          setIsPdfModalOpen={setIsPdfModalOpen}
-          setIsCallModalOpen={setIsCallModalOpen}
-          setIsCommunityModalOpen={setIsCommunityModalOpen}
-          type="call"
+        <MailchimpForm 
+          title="Book Your Free Strategy Call" 
+          description="Enter your details below to schedule your free 30-minute strategy call with our team." 
         />
       </Modal>
 
@@ -469,11 +480,9 @@ const LandingPage: React.FC = () => {
         onClose={() => setIsCommunityModalOpen(false)}
         title="Join Our Community"
       >
-        <EmailCaptureForm
-          setIsPdfModalOpen={setIsPdfModalOpen}
-          setIsCallModalOpen={setIsCallModalOpen}
-          setIsCommunityModalOpen={setIsCommunityModalOpen}
-          type="community"
+        <MailchimpForm 
+          title="Join Our Community" 
+          description="Enter your details below to join our community of entrepreneurs and coaches." 
         />
       </Modal>
 
