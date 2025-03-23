@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Footer from './components/Footer';
@@ -6,7 +6,7 @@ import CenteredLogoHeader from "./components/CenteredLogoHeader"
 import ABTestRouter from './components/ABTestRouter';
 import Terms from './pages/Terms';
 import PrivacyPolicy from './pages/PrivacyPolicy';
-import ThankYou from './pages/ThankYou';
+// import ThankYou from './pages/ThankYou';
 
 // import LandingPage from './pages/LandingPage';
 // import ThankYou from './pages/ThankYou';
