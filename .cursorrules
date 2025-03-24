@@ -11,11 +11,6 @@
       "pattern": "src/**/*"
     },
     {
-      "name": "Backend Tech Stack",
-      "description": "Express.js server with Mailchimp integration",
-      "pattern": "server/**/*"
-    },
-    {
       "name": "Component Structure",
       "description": "React components should be functional components with TypeScript interfaces for props",
       "pattern": "src/components/**/*.tsx"
@@ -34,11 +29,6 @@
       "name": "Utility Functions",
       "description": "Helper functions and utilities for the application",
       "pattern": "src/utils/**/*.ts"
-    },
-    {
-      "name": "API Integration",
-      "description": "The frontend communicates with the Express backend for Mailchimp operations",
-      "pattern": ["src/**/*.ts", "src/**/*.tsx", "server/index.js"]
     },
     {
       "name": "Environment Variables",
