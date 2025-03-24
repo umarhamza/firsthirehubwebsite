@@ -8,12 +8,6 @@ echo "NPM version: $(npm -v)"
 echo "Installing main project dependencies..."
 npm ci || npm install
 
-# Install dependencies for Netlify functions
-echo "Installing Netlify functions dependencies..."
-cd netlify/functions
-npm install
-cd ../..
-
 # Build the project
 echo "Building the project..."
 npm run build
