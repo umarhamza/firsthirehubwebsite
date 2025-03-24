@@ -1,66 +1,32 @@
-{
-  "rules": [
-    {
-      "name": "Project Structure",
-      "description": "FirstHireHub is a React TypeScript project with a separate Express backend server",
-      "pattern": "**/*"
-    },
-    {
-      "name": "Frontend Tech Stack",
-      "description": "React 18, TypeScript, Vite, TailwindCSS, React Router, React Helmet for SEO",
-      "pattern": "src/**/*"
-    },
-    {
-      "name": "Component Structure",
-      "description": "React components should be functional components with TypeScript interfaces for props",
-      "pattern": "src/components/**/*.tsx"
-    },
-    {
-      "name": "Page Structure",
-      "description": "Pages are React components that represent routes in the application",
-      "pattern": "src/pages/**/*.tsx"
-    },
-    {
-      "name": "Type Definitions",
-      "description": "TypeScript interfaces and types for the application",
-      "pattern": "src/types/**/*.ts"
-    },
-    {
-      "name": "Utility Functions",
-      "description": "Helper functions and utilities for the application",
-      "pattern": "src/utils/**/*.ts"
-    },
-    {
-      "name": "Environment Variables",
-      "description": "Environment variables are stored in .env files and should not be committed to version control",
-      "pattern": [".env", "server/.env"]
-    },
-    {
-      "name": "Build Configuration",
-      "description": "Vite is used for building the frontend application",
-      "pattern": ["vite.config.ts", "tsconfig*.json"]
-    },
-    {
-      "name": "Deployment",
-      "description": "The application is deployed on Netlify with serverless functions",
-      "pattern": ["netlify.toml", "netlify/**/*", "NETLIFY-DEPLOYMENT.md"]
-    },
-    {
-      "name": "Styling",
-      "description": "TailwindCSS is used for styling components",
-      "pattern": ["src/**/*.tsx", "tailwind.config.js", "postcss.config.js"]
-    },
-    {
-      "name": "Code Quality",
-      "description": "ESLint is used for code quality and formatting",
-      "pattern": ["eslint.config.js", ".eslintrc*"]
-    }
-  ],
-  "ignorePatterns": [
-    "node_modules/**/*",
-    "dist/**/*",
-    ".git/**/*",
-    "server/node_modules/**/*",
-    "**/*.log"
-  ]
-} 
+## Frontend
+- React 18
+- TypeScript
+- Vite (Build Tool)
+- TailwindCSS (Styling)
+- React Router (Routing)
+- React Helmet (SEO)
+
+- ESLint (Code Quality)
+- Prettier (Code Formatting)
+- TypeScript (Type Safety)
+
+## Deployment
+- Netlify
+
+## Project Structure
+```
+firsthirehubwebsite/
+├── src/
+│   ├── components/     # React components
+│   ├── pages/         # Route components
+│   ├── types/         # TypeScript definitions
+│   └── utils/         # Utility functions
+├── public/            # Static assets
+```
+
+## Key Features
+- Type-safe development with TypeScript
+- Modern component architecture
+- Responsive design with TailwindCSS
+- SEO optimization with React Helmet
+- Serverless deployment on Netlify 
